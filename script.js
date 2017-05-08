@@ -62,13 +62,37 @@ $(document).ready(function(){
 
 		//конец
 		if (i >= 31){
+			i = 100000;
 			$("#results").show();
 			$("#ppl").show();
 			$("#ters").show();
 			$("#mon").show();
 			$("#days").text("Конец демоверсии.");
 		}
-
+		if(ppl<=0){ 
+			i = 100000;
+			$("#results").show();
+			$("#ppl").show();
+			$("#ters").show();
+			$("#mon").show();
+			$("#days").text("Конец игры. Население вымерло.");
+		}
+		if(terra<=0){
+			i = 100000;
+			$("#results").show();
+			$("#ppl").show();
+			$("#ters").show();
+			$("#mon").show();
+			$("#days").text("Конец игры. Государство уничтожено.");
+		}
+		if(mon<=0){
+			i = 100000;
+			$("#results").show();
+			$("#ppl").show();
+			$("#ters").show();
+			$("#mon").show();
+			$("#days").text("Конец игры. Страна обанкротилась.");
+		}
 	})
 
 });
