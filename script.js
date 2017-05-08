@@ -12,6 +12,7 @@ $(document).ready(function(){
 	$("#mon").hide();
 	$("#event").hide();
 	$("fire").hide();
+	$("#result").hide();
 	
 	$("#btn").click(function(event){
 
@@ -61,13 +62,11 @@ $(document).ready(function(){
 
 		//конец
 		if (i >= 31){
-			$("#game").hide();
-			$("#ppl").hide();
-			$("#ters").hide();
-			$("#mon").hide();
-			$("#event").hide();
-			$("fire").hide()
-			$("#days").text("Конец игры");
+			$("#result").show();
+			$("#ppl").show();
+			$("#ters").show();
+			$("#mon").show();
+			$("#days").text("Конец демоверсии.");
 		}
 
 	})
