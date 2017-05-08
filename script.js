@@ -12,7 +12,7 @@ $(document).ready(function(){
 	$("#mon").hide();
 	$("#event").hide();
 	$("fire").hide();
-	$("#result").hide();
+	$("#results").hide();
 	
 	$("#btn").click(function(event){
 
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
 		//конец
 		if (i >= 31){
-			$("#result").show();
+			$("#results").show();
 			$("#ppl").show();
 			$("#ters").show();
 			$("#mon").show();
