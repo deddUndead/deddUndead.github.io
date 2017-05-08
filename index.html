@@ -17,9 +17,9 @@
     border-style: outset;
     border-color: gray;
     color: white;
-    font-size: 50px;
-    padding-left: 10;
-    padding-right: 10;
+    font-size: 30px;
+    padding-left: 50;
+    padding-right: 50;
     padding-top: 10;
     padding-bottom: 10;
     border-radius: 10px;
@@ -58,6 +58,11 @@
     	border-width:8;
   }
 
+   .naem{
+      margin-top:30;
+      text-align:center;
+  }
+
 
 </style>
 <script src="script.js"></script>
@@ -65,7 +70,13 @@
 
 <body>
 
-<h1>Государство: Россия</h1><br>
+ <div class="naem" id="chusnaem">
+   <input type="text" id="gosname">
+   <input type="button" value="OK" id="gosnameok"/>
+   <h2>Введите название государства.</h2>
+ </div>
+
+<h1 id="start">Государство: none</h1><br>
 <h2 id="days">Игра не начата</h2><br>
 
 <input type="button" id="btn" value="Следующий день"/><br><br>
@@ -74,11 +85,11 @@
 	<h2 id="results">Ваши результаты: </h2>
 	<h2 id="ters">Территории: 100/100 %</h2>
 	<h2 id="ppl">Население: 100 челoвек</h2>
-	<h2 id="mon">Казна: 1000 рублей</h2>
+	<h2 id="mon">Казна: 1000 монет</h2>
 </div>
 
 <div class="events" id="event">
-	<h2 id="fire">В стране случился <p>пожар</p></h2>
+	<h2 id="fire">На лесорубке случился <p>пожар</p></h2>
 </div> 	
 
-</body>
+</body>	
