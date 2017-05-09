@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	var i = 0;
+	var i = 0; 
+	var war = 0;
 	var randomerfire, randomerepid, goswar, randomerwar, warlose;
 	var ppl = 100; var mon = 1000;
 	var randomPPL, randomTERS, randomMON;
@@ -14,9 +15,9 @@ $(document).ready(function(){
 	$("#ppl").hide();			$("#war").hide();
 	$("#ters").hide();			$("#winwar").hide();
 	$("#mon").hide();			$("#losewar").hide();	
-	$("#fire").hide();
-	$("#start").hide();
-	$("#results").hide();	
+	$("#fire").hide();			$("#warning").hide();
+	$("#start").hide();			$("#ura").hide();
+	$("#results").hide();		$("#nou").hide();
 	$("#days").hide();
 	$("#btn").hide();
 
@@ -41,7 +42,8 @@ $(document).ready(function(){
 
 	$("#btn").click(function(event){
 
-		$("#fire").hide(); $("#epid").hide();
+		$("#fire").hide(); $("#epid").hide(); $("#war").hide(); $("#losewar").hide(); 
+		$("#winwar").hide(); $("#warning").hide(); $("#ura").hide(); $("#nou").hide();
 
 		//каунтер дней
 		i++;
@@ -58,6 +60,34 @@ $(document).ready(function(){
 		//первые 31 дней
 		if (i < 31){
 
+			//если объявлена война
+			if(war == 1){
+				warlose = Math.floor(Math.random() * (100 - 10)) + 10;
+				if (warlose <= 25)
+				{
+					$("#nou").show();
+					$("#losewar").show();
+					$("#losewar").text("Вы проиграли войну против государства " + townenemy[goswar]);
+
+					ppl = ppl - 400;
+					mon = mon - 600;
+					terra = terra - 40;
+					war = 0;
+				}
+				if (warlose > 25)
+				{
+					$("#ura").show();
+					$("#winwar").show();
+					$("#winwar").text("Вы выиграли войну против государства " + townenemy[goswar]);
+
+					ppl = ppl - 50;
+					mon = mon + 400;
+					terra = terra + 10;
+					war = 0;
+					if(terra > 100) terra = 100;
+				}
+			}
+
 			randomMON = Math.floor(Math.random() * (100 - 10)) + 10;
 			randomPPL = Math.floor(Math.random() * (50 - 5)) + 5;
 
@@ -70,10 +100,10 @@ $(document).ready(function(){
 
 			//евенты
 			randomerfire = Math.floor(Math.random() * (100 - 1)) + 1;
-			if(randomerfire < 10){
+			if(randomerfire < 20){
 				$("#fire").show();
 
-				ppl = ppl - 100;
+				ppl = ppl - 50;
 				mon = mon - 450;
 				terra = terra - 10;
 
@@ -83,14 +113,24 @@ $(document).ready(function(){
 			}
 
 			randomerepid = Math.floor(Math.random() * (100 - 1)) + 1;
-			if(randomerepid < 5){
+			if(randomerepid < 10){
 				$("#epid").show();
 
-				ppl = ppl - 200;
+				ppl = ppl - 150;
 
 				$("#ppl").text("Население: " + ppl + " человек");
 				$("#mon").text("Казна: " + mon + " монет");
 				$("#ters").text("Территория: " + terra + "/100 %");
+			}
+
+			randomerwar = Math.floor(Math.random() * (100 - 1)) + 1;
+			if(randomerwar < 5){
+				goswar = Math.floor(Math.random() * (7 - 0)) + 0;
+
+				$("#war").show();
+				$("#warning").show();
+				$("#war").text("Государство " + townenemy[goswar] + " объявляет вам войну");
+				war = 1;
 			}
 			
 		}
