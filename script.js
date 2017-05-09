@@ -1,20 +1,20 @@
 $(document).ready(function(){
 	var i = 0;
-	var randomer;
+	var randomerfire, randomerepid, goswar, randomerwar, warlose;
 	var ppl = 100; var mon = 1000;
 	var randomPPL, randomTERS, randomMON;
 	var terra = 100;
 	var townsfp = ["Асгорд", "Пантелеода", "Украина", "Летзария", "Гондор", "Молдавия", "Германия", "Пруссия"];
+	var townenemy = ["ЮАР", "США", "Регрардия", "Ромалиа", "Беккилион", "Филатия", "Джурия", "Спарта"];
 	var gosudarstvoname = "undefined";
 
 
 	//игровые элементы
-	$("#game").hide();
-	$("#ppl").hide();
-	$("#ters").hide();
-	$("#mon").hide();
-	$("#event").hide();
-	$("fire").hide();
+	$("#game").hide(); 			$("#epid").hide();
+	$("#ppl").hide();			$("#war").hide();
+	$("#ters").hide();			$("#winwar").hide();
+	$("#mon").hide();			$("#losewar").hide();	
+	$("#fire").hide();
 	$("#start").hide();
 	$("#results").hide();	
 	$("#days").hide();
@@ -41,8 +41,7 @@ $(document).ready(function(){
 
 	$("#btn").click(function(event){
 
-		$("#event").hide();
-		$("#fire").hide();
+		$("#fire").hide(); $("#epid").hide();
 
 		//каунтер дней
 		i++;
@@ -56,8 +55,9 @@ $(document).ready(function(){
 			$("#mon").show();
 		}
 
-		//первые 20 дней
+		//первые 31 дней
 		if (i < 31){
+
 			randomMON = Math.floor(Math.random() * (100 - 10)) + 10;
 			randomPPL = Math.floor(Math.random() * (50 - 5)) + 5;
 
@@ -66,23 +66,35 @@ $(document).ready(function(){
 
 			$("#ppl").text("Население: " + ppl + " человек");
 			$("#mon").text("Казна: " + mon + " монет");
-			$("#ters").text("Территория: " + terra + "/100 %")
+			$("#ters").text("Территория: " + terra + "/100 %");
 
 			//евенты
-			randomer = Math.floor(Math.random() * (100 - 1)) + 1;
-			if(randomer < 10){
-				$("#event").show();
+			randomerfire = Math.floor(Math.random() * (100 - 1)) + 1;
+			if(randomerfire < 10){
 				$("#fire").show();
 
-				ppl = ppl - 150;
+				ppl = ppl - 100;
 				mon = mon - 450;
 				terra = terra - 10;
 
 				$("#ppl").text("Население: " + ppl + " человек");
 				$("#mon").text("Казна: " + mon + " монет");
-				$("#ters").text("Территория: " + terra + "/100 %")
+				$("#ters").text("Территория: " + terra + "/100 %");
 			}
+
+			randomerepid = Math.floor(Math.random() * (100 - 1)) + 1;
+			if(randomerepid < 5){
+				$("#epid").show();
+
+				ppl = ppl - 200;
+
+				$("#ppl").text("Население: " + ppl + " человек");
+				$("#mon").text("Казна: " + mon + " монет");
+				$("#ters").text("Территория: " + terra + "/100 %");
+			}
+			
 		}
+
 
 		//конец
 		if (i >= 31){
