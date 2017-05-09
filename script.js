@@ -18,7 +18,7 @@ $(document).ready(function(){
 	$("#fire").hide();			$("#warning").hide();
 	$("#start").hide();			$("#ura").hide();
 	$("#results").hide();		$("#nou").hide();
-	$("#days").hide();
+	$("#days").hide();			$("#res").hide();
 	$("#btn").hide();
 
 	//название
@@ -144,6 +144,8 @@ $(document).ready(function(){
 			$("#ters").show();
 			$("#mon").show();
 			$("#days").text("Конец демоверсии.");
+			$("#res").show();
+			$("#btn").hide();
 		}
 		if(ppl<=0){ 
 			i = 100000;
@@ -152,6 +154,8 @@ $(document).ready(function(){
 			$("#ters").show();
 			$("#mon").show();
 			$("#days").text("Конец игры. Население вымерло.");
+			$("#res").show();
+			$("#btn").hide();
 		}
 		if(terra<=0){
 			i = 100000;
@@ -160,6 +164,8 @@ $(document).ready(function(){
 			$("#ters").show();
 			$("#mon").show();
 			$("#days").text("Конец игры. Государство уничтожено.");
+			$("#res").show();
+			$("#btn").hide();
 		}
 		if(mon<=0){
 			i = 100000;
@@ -168,6 +174,8 @@ $(document).ready(function(){
 			$("#ters").show();
 			$("#mon").show();
 			$("#days").text("Конец игры. Страна обанкротилась.");
+			$("#res").show();
+			$("#btn").hide();
 		}
 	});
 
